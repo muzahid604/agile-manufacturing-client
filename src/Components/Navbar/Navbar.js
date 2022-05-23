@@ -25,7 +25,7 @@ const Navbar = () => {
                         {menubar}
                     </ul>
                 </div>
-                <h1 class="text-xl font-bold ml-5">AGILE MANUFACTURING</h1>
+                <h1 class="text-xl text-black font-bold ml-5">AGILE MANUFACTURING</h1>
             </div>
             <div class="navbar-center hidden lg:flex">
                 <ul class="menu menu-horizontal p-0">
