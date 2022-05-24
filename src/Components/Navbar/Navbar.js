@@ -29,6 +29,14 @@ const Navbar = () => {
         </Link>
         <div className='sm:mt-5 lg:mt-0'>
             {user ? <Link to="/login" onClick={logout} className=' font-bold mx-3   btn hover:text-black'>LOGOUT</Link> : <Link to="/login" className=' font-bold mx-3   btn hover:text-black'>LOGIN</Link>}
+
+        </div>
+        <div>
+            {user ? <div class="avatar online">
+                <div class="w-12 rounded-full">
+                    <img src={user.photoURL} />
+                </div>
+            </div> : <p></p>}
         </div>
     </>
     return (
