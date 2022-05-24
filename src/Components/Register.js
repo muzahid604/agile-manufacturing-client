@@ -1,20 +1,49 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../firebase.init'
 
-const Login = () => {
+const Register = () => {
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useCreateUserWithEmailAndPassword(auth);
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         reset()
         console.log(data)
+        createUserWithEmailAndPassword(data.email, data.password)
+
     };
 
     return (
         <div className='flex max-h-screen justify-around m-10 items-center'>
             <div className="card w-96 bg-base-100 shadow-xl">
                 <div className="card-body">
-                    <h2 className="text-center text-2xl font-bold">Login</h2>
+                    <h2 className="text-center text-2xl font-bold">Sign Up</h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label">
+                                <span className="label-text">Name</span>
+                            </label>
+                            <input
+                                type="name"
+                                placeholder="Your Name"
+                                className="input input-bordered w-full max-w-xs"
+                                {...register("name", {
+                                    required: {
+                                        value: true,
+                                        message: 'Name is Required'
+                                    }
+                                })}
+                            />
+                            <label className="label">
+                            </label>
+                        </div>
+
                         <div className="form-control w-full max-w-xs">
                             <label className="label">
                                 <span className="label-text">Email</span>
@@ -34,10 +63,8 @@ const Login = () => {
                                     }
                                 })}
                             />
-                            {/* <label className="label">
-                                {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
-                                {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
-                            </label> */}
+                            <label className="label">
+                            </label>
                         </div>
                         <div className="form-control w-full max-w-xs">
                             <label className="label">
@@ -65,9 +92,9 @@ const Login = () => {
                         </div>
 
 
-                        <input className='btn w-full mt-5 max-w-xs text-white' type="submit" value="Login" />
+                        <input className='btn w-full mt-5 max-w-xs text-white' type="submit" value="Sign Up" />
                     </form>
-                    <p><small><Link className='text-primary' to="/register">Create A New Account</Link></small></p>
+                    <p><small>Already have an Account  <Link className='text-primary' to="/login">Please Log In</Link></small></p>
                     <div className="divider">OR</div>
                     <button
                         className="btn btn-outline"
@@ -78,8 +105,7 @@ const Login = () => {
                 <img className='bg-base-100 shadow-xl rounded-lg' src="https://i.ibb.co/N6cZcpc/isaac-burke-bf-Ul4u9-Namo-unsplash.jpg" alt="" />
             </div>
         </div >
-
     );
 };
 
-export default Login;
+export default Register;
