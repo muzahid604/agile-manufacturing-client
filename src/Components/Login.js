@@ -29,7 +29,7 @@ const Login = () => {
         navigate('/home')
     }
     if (loading || gLoading) {
-        <Loading />
+        return <Loading />
     }
     if (error || gError) {
         signInError = <p className='text-red-500'><small>{error?.message}</small></p>

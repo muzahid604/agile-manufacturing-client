@@ -29,7 +29,7 @@ const Register = () => {
         navigate('/home')
     }
     if (loading || gLoading) {
-        <Loading />
+        return <Loading />
     }
     let signInError;
     if (error || gError) {
