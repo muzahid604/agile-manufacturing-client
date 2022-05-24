@@ -1,14 +1,33 @@
 import React from 'react';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import auth from '../firebase.init';
+import Loading from './Loading';
 
 const Login = () => {
-    const { register, handleSubmit, reset } = useForm();
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
+    const navigate = useNavigate();
+    const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         reset()
-        console.log(data)
+        signInWithEmailAndPassword(data?.email, data?.password)
     };
-
+    let signInError;
+    if (user) {
+        navigate('/home')
+    }
+    if (loading) {
+        <Loading />
+    }
+    if (error) {
+        signInError = <p className='text-red-500'><small>{error?.message}</small></p>
+    }
     return (
         <div className='flex max-h-screen justify-around m-10 items-center'>
             <div className="card w-96 bg-base-100 shadow-xl">
@@ -34,10 +53,10 @@ const Login = () => {
                                     }
                                 })}
                             />
-                            {/* <label className="label">
-                                {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
-                                {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
-                            </label> */}
+                            <label className="label">
+                                {errors?.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors?.email?.message}</span>}
+                                {errors?.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors?.email?.message}</span>}
+                            </label>
                         </div>
                         <div className="form-control w-full max-w-xs">
                             <label className="label">
@@ -58,21 +77,23 @@ const Login = () => {
                                     }
                                 })}
                             />
-                            {/* <label className="label">
-                                {errors.password?.type === 'required' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
-                                {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
-                            </label> */}
+                            <label className="label">
+                                {errors?.password?.type === 'required' && <span className="label-text-alt text-red-500">{errors?.password?.message}</span>}
+                                {errors?.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors?.password?.message}</span>}
+                            </label>
                         </div>
 
 
                         <input className='btn w-full mt-5 max-w-xs text-white' type="submit" value="Login" />
+                        {signInError}
                     </form>
-                    <p><small><Link className='text-primary' to="/register">Create A New Account</Link></small></p>
+                    <p className='text-2xl'><small><Link className='text-primary' to="/register">Create A New Account</Link></small></p>
                     <div className="divider">OR</div>
                     <button
                         className="btn btn-outline"
                     >Continue with Google</button>
                 </div>
+
             </div>
             <div className='w-0 md:w-80 lg:w-96'>
                 <img className='bg-base-100 shadow-xl rounded-lg' src="https://i.ibb.co/N6cZcpc/isaac-burke-bf-Ul4u9-Namo-unsplash.jpg" alt="" />
