@@ -34,7 +34,7 @@ const BusinessSummary = () => {
         }]
     return (
         <div>
-            <h1 className='text-primary text-center text-5xl my-10 uppercase'>Numbers Speak for Themselves</h1>
+            <h1 className='text-primary text-center text-3xl lg:text-5xl mt-10 mb-5 uppercase'>Numbers Speak for Themselves</h1>
             <div className='grid lg:grid-cols-4 gap-3 bg-slate-100'>
                 {summary.map(s => <Summary key={s?._id}
                     summary={s}
