@@ -13,9 +13,9 @@ const Navbar = () => {
         <Link to="/" className=' mx-3 hover:text-yellow-700 lg:mt-3 font-bold'>HOME</Link>
         <Link to="/about" className=' mx-3 lg:mt-3 hover:text-yellow-700 font-bold'>ABOUT</Link>
 
-        <Link to="/services" className=' mx-3 lg:mt-3 hover:text-yellow-700 font-bold'>
-            SERVICES
-        </Link>
+        {user ? <Link to="/tools" className=' mx-3 lg:mt-3 hover:text-yellow-700 font-bold'>
+            TOOLS
+        </Link> : <p></p>}
         <Link to="/pricing" className='font-bold mx-3 lg:mt-3 hover:text-yellow-700'>
             CHECKOUT                        </Link>
         <Link to="/blogs" className='font-bold mx-3 lg:mt-3 hover:text-yellow-700 '>

@@ -1,13 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import useTools from '../hooks/useTools';
 import Tool from './Tool';
 
 const Tools = () => {
-    const [tools, setTools] = useState([]);
-    useEffect(() => {
-        fetch('products.json')
-            .then(res => res.json())
-            .then(data => setTools(data))
-    }, [])
+    const [tools] = useTools()
     return (
         <div className='flex items-center flex-col my-12'>
             <div className=''>
