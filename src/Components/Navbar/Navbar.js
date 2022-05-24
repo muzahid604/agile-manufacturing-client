@@ -1,18 +1,29 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const menubar = <>
-        <li><a>Item 1</a></li>
-        <li tabindex="0">
-            <a class="justify-between">
-                Parent
-                <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-            </a>
-            <ul class="p-2">
-                <li><a>Submenu 1</a></li>
-                <li><a>Submenu 2</a></li>
-            </ul>
-        </li>
+        <Link to="/" className=' mx-3 hover:text-yellow-700 lg:mt-3 font-bold'>HOME</Link>
+        <Link to="/about" className=' mx-3 lg:mt-3 hover:text-yellow-700 font-bold'>ABOUT</Link>
+
+        <Link to="/services" className=' mx-3 lg:mt-3 hover:text-yellow-700 font-bold'>
+            SERVICES
+        </Link>
+        <Link to="/pricing" className='font-bold mx-3 lg:mt-3 hover:text-yellow-700'>
+            CHECKOUT                        </Link>
+        <Link to="/blogs" className='font-bold mx-3 lg:mt-3 hover:text-yellow-700 '>
+            BLOGS
+        </Link>
+        <Link to="/contact" className=' font-bold mx-3 lg:mt-3  hover:text-yellow-700 '>
+            CONTACT
+        </Link>
+        <Link to="/mission" className='font-bold mx-3 lg:mt-3 hover:text-yellow-700 '>
+            MISSION
+        </Link>
+        <div className='sm:mt-5 lg:mt-0'>
+            <Link to="/login" className=' font-bold mx-3   btn hover:text-black'>LOGIN</Link>
+            <Link to="/register" className='font-bold mx-3 btn  hover:text-black'>REGISTER</Link>
+        </div>
     </>
     return (
         <div class="navbar bg-zinc-400">
@@ -32,7 +43,6 @@ const Navbar = () => {
                     {menubar}
                 </ul>
             </div>
-
         </div>
     );
 };
