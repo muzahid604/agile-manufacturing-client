@@ -1,6 +1,7 @@
 import React from 'react';
 import useTools from '../hooks/useTools';
 import Tool from './Tool';
+import { Link } from 'react-router-dom';
 
 const Tools = () => {
     const [tools] = useTools()
@@ -12,7 +13,7 @@ const Tools = () => {
                     tool={tool}
                 ></Tool>)}
             </div>
-            <button className="lg:my-12 btn btn-primary uppercase text-dark font-bold bg-gradient-to-r from-secondary to-primary">More TOOls</button>
+            <Link to='/tools' className="lg:my-12 btn btn-primary uppercase text-dark font-bold bg-gradient-to-r from-secondary to-primary">More TOOls</Link>
         </div>
     );
 };

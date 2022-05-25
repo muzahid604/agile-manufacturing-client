@@ -16,6 +16,10 @@ const Navbar = () => {
         {user ? <Link to="/tools" className=' mx-3 lg:mt-3 hover:text-yellow-700 font-bold'>
             TOOLS
         </Link> : <p></p>}
+        {user ? <Link to="/dashboard" className=' mx-3 lg:mt-3 hover:text-yellow-700 font-bold'>
+            DASHBOARD
+        </Link> : <p></p>}
+
         <Link to="/pricing" className='font-bold mx-3 lg:mt-3 hover:text-yellow-700'>
             CHECKOUT                        </Link>
         <Link to="/blogs" className='font-bold mx-3 lg:mt-3 hover:text-yellow-700 '>
@@ -24,9 +28,6 @@ const Navbar = () => {
         <Link to="/contact" className=' font-bold mx-3 lg:mt-3  hover:text-yellow-700 '>
             CONTACT
         </Link>
-        <Link to="/mission" className='font-bold mx-3 lg:mt-3 hover:text-yellow-700 '>
-            MISSION
-        </Link>
         <div className='sm:mt-5 lg:mt-0'>
             {user ? <Link to="/login" onClick={logout} className=' font-bold mx-3   btn hover:text-black'>LOGOUT</Link> : <Link to="/login" className=' font-bold mx-3   btn hover:text-black'>LOGIN</Link>}
 
@@ -34,13 +35,13 @@ const Navbar = () => {
         <div>
             {user ? <div class="avatar online">
                 <div class="w-12 rounded-full">
-                    <img src={user.photoURL} />
+                    <img src={user.photoURL} alt='profile' />
                 </div>
             </div> : <p></p>}
         </div>
     </>
     return (
-        <div class="navbar bg-zinc-400">
+        <div class="navbar bg-secondary">
             <div class="navbar-start">
                 <div class="dropdown">
                     <label tabindex="0" class="btn btn-ghost lg:hidden">

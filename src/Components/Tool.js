@@ -12,7 +12,7 @@ const Tool = ({ tool }) => {
                     <h3>FOB PRICES : {FOBPrices}</h3>
                     <h3>MIN.ORDER : {MinOrder}</h3>
                     <div class="card-actions justify-start">
-                        <button className="btn btn-primary uppercase text-dark font-bold bg-gradient-to-r from-secondary to-primary">purchase</button>
+                        <button className="btn btn-primary uppercase text-dark font-bold bg-gradient-to-r from-secondary to-primary">Read more</button>
                     </div>
                 </div>
             </div>

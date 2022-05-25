@@ -11,8 +11,8 @@ const Products = () => {
                 {tools?.map(tool => <Product key={tool?._id}
                     tool={tool}
                 ></Product>)}
+                <button className="lg:my-12 btn btn-primary uppercase text-dark font-bold bg-gradient-to-r from-secondary to-primary text-center">add tools</button>
             </div>
-            <button className="lg:my-12 btn btn-primary uppercase text-dark font-bold bg-gradient-to-r from-secondary to-primary">add tools</button>
         </div>
     );
 };

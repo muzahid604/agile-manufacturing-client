@@ -1,8 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Product = ({ tool }) => {
-    const { name, picture, MinOrder, FOBPrices } = tool;
+    const { _id, name, picture, MinOrder, FOBPrices } = tool;
+    const navigate = useNavigate();
+    const navigateToItemDetail = _id => {
+        navigate(`/tools/${_id}`);
+    }
     return (
         <div>
             <div class="card w-80 bg-base-100 shadow-xl">
@@ -14,11 +18,11 @@ const Product = ({ tool }) => {
                     <p>MIN.ORDER : {MinOrder}</p>
                     <p>FOB PRICES :{FOBPrices}</p>
                     <div class="card-actions">
-                        <Link to='/' className="btn btn-primary uppercase text-dark font-bold bg-gradient-to-r from-secondary to-primary">purchase</Link>
+                        <button onClick={() => navigateToItemDetail(_id)} className="btn btn-primary uppercase text-dark font-bold bg-gradient-to-r from-secondary to-primary">purchase</button>
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
