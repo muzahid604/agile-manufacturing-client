@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
+import auth from '../firebase.init';
+
 
 const Purchase = () => {
     const { toolId } = useParams()
@@ -10,12 +14,15 @@ const Purchase = () => {
             .then(res => res.json())
             .then(data => setTool(data))
     }, [toolId])
-    const { _id, name, picture, MinOrder, FOBPrices, description, quantity } = tool;
-    const updateForOrder = event => {
-        event.preventDefault();
+    const { name, picture, MinOrder, FOBPrices, description, quantity } = tool;
+    // add 
+    const { register, handleSubmit, reset } = useForm();
+    const [user] = useAuthState(auth);
+
+    const onSubmit = data => {
         let Quantity = parseInt(tool?.quantity);
         const minOrder = parseInt(tool?.MinOrder);
-        const newQuantity = event?.target?.orderQuantity?.value;
+        const newQuantity = data.orderQuantity;
         if (newQuantity >= minOrder && newQuantity < Quantity) {
             Quantity = Quantity - parseInt(newQuantity);
         }
@@ -25,9 +32,9 @@ const Purchase = () => {
         console.log(Quantity)
         let updateTool = { Quantity };
         // send data to the server
-        const url = `http://localhost:5000/products/${toolId}`;
-        console.log(url)
-        fetch(url, {
+        const urli = `http://localhost:5000/products/${toolId}`;
+        console.log(urli)
+        fetch(urli, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -37,31 +44,39 @@ const Purchase = () => {
             .then(res => res.json())
             .then(data => {
                 setTool(data)
-                event.target.reset();
+                reset()
+                console.log(data)
             })
 
     }
+
+
+
     return (
         <div>
-            <div class="card w-full bg-base-100">
-                <figure class="px-10 pt-10">
-                    <img src={picture} alt="Shoes" class="w-80 rounded-xl" />
-                </figure>
-                <div class="card-body items-center text-center">
-                    <h2 class="card-title">{name}</h2>
-                    <p>About This Tools : {description}</p>
-                    <p>MIN.ORDER : {MinOrder}</p>
-                    <p>FOB PRICES :{FOBPrices}</p>
-                    <h1 className='text-xl'>Available:{quantity}</h1>
-                    <form onSubmit={updateForOrder}>
-                        <input type="number" class="input input-bordered w-full max-w-xs" name='orderQuantity' />
-                        <input type="submit" value='Enter quantity' className='btn btn-xs m-5' />
-                    </form>
-                    <div class="card-actions">
-                        <button className="btn btn-primary uppercase text-dark font-bold bg-gradient-to-r from-secondary to-primary">Make payment</button>
+            <div className='flex'>
+                <div class="card w-full m-4 lg:card-side h-full bg-base-100 shadow-xl">
+                    <figure><img src={picture} alt="Album" class="rounded-xl w-48" /></figure>
+                    <div class="card-body">
+                        <h2 class="card-title">{name}</h2>
+                        <h2 className='text-xl'>About This Tool{description}</h2>
+                        <h3>FOB PRICES : {FOBPrices}</h3>
+                        <h3>MIN.ORDER : {MinOrder}</h3>
+                        <h1 className='text-xl'>Available:{quantity}</h1>
                     </div>
                 </div>
             </div>
+            <div><div className='w-50  mx-auto border p-4 m-2' >
+                <h4 className='text-3xl text-primary text-center m-4'>Purchase</h4>
+                <form className='flex flex-col items-center justify-center' onSubmit={handleSubmit(onSubmit)}>
+                    <input className='mb-2 input input-bordered w-full max-w-xs' value={user.displayName} placeholder='user' {...register("displayName", { required: true })} />
+                    <input className='mb-2 input input-bordered w-full max-w-xs' value={user.email} placeholder='user' {...register("email", { required: true })} />
+                    <input className='mb-2 input input-bordered w-full max-w-xs' placeholder='Enter quantity' {...register("orderQuantity", { required: true })} />
+                    <input className='mb-2 input input-bordered w-full max-w-xs' placeholder='Enter Phone number' {...register("phone")} />
+                    <input className='mb-2 input input-bordered w-full max-w-xs' placeholder='Enter your address' {...register("address")} />
+                    <input className='btn btn-xs' type="submit" value="Add For Me" />
+                </form>
+            </div></div>
         </div>
     );
 };

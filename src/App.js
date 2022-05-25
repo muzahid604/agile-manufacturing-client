@@ -11,6 +11,7 @@ import NotFound from './Pages/NotFound';
 import RequireAuth from './Components/RequireAuth';
 import Purchase from './Pages/Purchase';
 
+
 function App() {
   return (<div>
     <Navbar />
