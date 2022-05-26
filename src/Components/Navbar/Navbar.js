@@ -58,6 +58,9 @@ const Navbar = () => {
                     {menubar}
                 </ul>
             </div>
+            <div className='navbar-end lg:hidden'>
+
+            </div>
         </div>
     );
 };
