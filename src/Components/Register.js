@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../firebase.init'
 import Loading from './Loading';
+import useToken from '../hooks/useToken';
 
 const Register = () => {
     const [
@@ -18,14 +19,15 @@ const Register = () => {
         gLoading,
         gError] = useSignInWithGoogle(auth);
     const navigate = useNavigate();
+
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
+    const [token] = useToken(user || gUser)
     const onSubmit = data => {
         reset()
         console.log(data)
         createUserWithEmailAndPassword(data.email, data.password)
-
     };
-    if (user || gUser) {
+    if (token) {
         navigate('/home')
     }
     if (loading || gLoading) {
@@ -35,6 +37,7 @@ const Register = () => {
     if (error || gError) {
         signInError = <p className='text-red-500'><small>{error?.message}</small></p>
     }
+
     return (
         <div className='flex max-h-screen justify-around m-10 items-center'>
             <div className="card w-96 bg-base-100 shadow-xl">
