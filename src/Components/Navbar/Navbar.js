@@ -8,6 +8,7 @@ const Navbar = () => {
     const [user] = useAuthState(auth);
     const logout = () => {
         signOut(auth);
+        localStorage.removeItem('accessToken')
     };
     const menubar = <>
         <Link to="/" className=' mx-3 hover:text-yellow-700 lg:mt-3 font-bold'>HOME</Link>
