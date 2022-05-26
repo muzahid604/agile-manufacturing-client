@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../firebase.init';
 import { useNavigate } from 'react-router-dom';
-import { signOut } from 'firebase/auth';
+
 
 const MyOrder = () => {
     const [user] = useAuthState(auth);
@@ -19,7 +19,6 @@ const MyOrder = () => {
                 .then(res => {
                     console.log(res)
                     if (res.status === 401) {
-
                         navigate('/')
                     }
                     else if (res.status === 403) {
