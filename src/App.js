@@ -13,6 +13,8 @@ import Purchase from './Pages/Purchase';
 import MyOrder from './Components/MyOrder';
 import AddReview from './Components/AddReview';
 import MyProfile from './Components/MyProfile';
+import Users from './Pages/Users';
+import Payment from './Components/Payment';
 
 
 function App() {
@@ -26,9 +28,16 @@ function App() {
           <Products />
         </RequireAuth>
       }></Route>
-      <Route path='/tools/:toolId' element={<RequireAuth>
-        <Purchase />
-      </RequireAuth>}></Route>
+      <Route path='/tools/:toolId' element={
+        <RequireAuth>
+          <Purchase />
+        </RequireAuth>}>
+      </Route>
+      <Route path='/payment/:toolId' element={
+        <RequireAuth>
+          <Payment />
+        </RequireAuth>}>
+      </Route>
       <Route path='/dashboard' element={
         <RequireAuth>
           <DashBoard />
@@ -37,6 +46,7 @@ function App() {
         <Route index element={<MyOrder />}></Route>
         <Route path='/dashboard/addreview' element={<AddReview />}></Route>
         <Route path='/dashboard/myprofile' element={<MyProfile />}></Route>
+        <Route path='/dashboard/users' element={<Users />}></Route>
       </Route>
       <Route path='/login' element={<Login />}></Route>
       <Route path='/register' element={<Register />}></Route>

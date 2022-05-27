@@ -18,6 +18,7 @@ const DashBoard = () => {
                     <li className='mx-3 lg:mt-3 hover:text-yellow-700 font-bold bg-emerald-300 rounded-lg my-3'><Link to='/dashboard'>My Orders</Link></li>
                     <li className='mx-3 lg:mt-3 hover:text-yellow-700 font-bold bg-emerald-300 rounded-lg my-3'><Link to='/dashboard/addreview'>Add a review</Link></li>
                     <li className='mx-3 lg:mt-3 hover:text-yellow-700 font-bold bg-emerald-300 rounded-lg my-3'><Link to='/dashboard/myprofile'>My Profile</Link></li>
+                    <li className='mx-3 lg:mt-3 hover:text-yellow-700 font-bold bg-emerald-300 rounded-lg my-3'><Link to='/dashboard/users'>Users</Link></li>
                 </ul>
 
             </div>

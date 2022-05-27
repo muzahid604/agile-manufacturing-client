@@ -79,18 +79,19 @@ const Purchase = () => {
                     </div>
                 </div>
             </div>
-            <div><div className='w-50  mx-auto border p-4 m-2' >
-                <h4 className='font-bold text-3xl text-primary text-center m-4'>Purchase</h4>
-                <form className='flex flex-col items-center justify-center' onSubmit={handleSubmit(onSubmit)}>
-                    <input className='mb-2 input input-bordered w-full max-w-xs' value={user.displayName} placeholder='user' {...register("displayName", { required: true })} />
-                    <input className='mb-2 input input-bordered w-full max-w-xs' value={user.email} placeholder='user email' {...register("customer", { required: true })} />
-                    <input className='mb-2 input input-bordered w-full max-w-xs' value={name} placeholder='product name' {...register("productName", { required: true })} />
-                    <input className='mb-2 input input-bordered w-full max-w-xs' placeholder='Enter quantity' {...register("orderQuantity", { required: true })} />
-                    <input className='mb-2 input input-bordered w-full max-w-xs' placeholder='Enter Phone number' {...register("phone")} />
-                    <input className='mb-2 input input-bordered w-full max-w-xs' placeholder='Enter your address' {...register("address")} />
-                    <input className='btn btn-xs' type="submit" value="Add For Me" />
-                </form>
-            </div>
+            <div>
+                <div className='w-50  mx-auto border p-4 m-2' >
+                    <h4 className='font-bold text-3xl text-primary text-center m-4'>Purchase</h4>
+                    <form className='flex flex-col items-center justify-center' onSubmit={handleSubmit(onSubmit)}>
+                        <input className='mb-2 input input-bordered w-full max-w-xs' value={user.displayName} placeholder='user' {...register("displayName", { required: true })} />
+                        <input className='mb-2 input input-bordered w-full max-w-xs' value={user.email} placeholder='user email' {...register("customer", { required: true })} />
+                        <input className='mb-2 input input-bordered w-full max-w-xs' value={name} placeholder='product name' {...register("productName", { required: true })} />
+                        <input className='mb-2 input input-bordered w-full max-w-xs' placeholder='Enter quantity' {...register("orderQuantity", { required: true })} />
+                        <input className='mb-2 input input-bordered w-full max-w-xs' placeholder='Enter Phone number' {...register("phone")} />
+                        <input className='mb-2 input input-bordered w-full max-w-xs' placeholder='Enter your address' {...register("address")} />
+                        <input className='btn btn-xs' type="submit" value="Add For Me" />
+                    </form>
+                </div>
 
             </div>
         </div>
