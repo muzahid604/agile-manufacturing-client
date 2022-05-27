@@ -15,6 +15,8 @@ import AddReview from './Components/AddReview';
 import MyProfile from './Components/MyProfile';
 import Users from './Pages/Users';
 import Payment from './Components/Payment';
+import ThanksPay from './Components/ThanksPay';
+import Reviews from './Components/Reviews';
 
 
 function App() {
@@ -48,8 +50,11 @@ function App() {
         <Route path='/dashboard/myprofile' element={<MyProfile />}></Route>
         <Route path='/dashboard/users' element={<Users />}></Route>
       </Route>
+
       <Route path='/login' element={<Login />}></Route>
+      <Route path='/reviews' element={<Reviews />}></Route>
       <Route path='/register' element={<Register />}></Route>
+      <Route path='/thanks' element={<ThanksPay />}></Route>
       <Route path='*' element={<NotFound />}></Route>
     </Routes>
   </div>

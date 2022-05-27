@@ -21,8 +21,8 @@ const Navbar = () => {
             DASHBOARD
         </Link> : <p></p>}
 
-        <Link to="/pricing" className='font-bold mx-3 lg:mt-3 hover:text-yellow-700'>
-            CHECKOUT                        </Link>
+        <Link to="/reviews" className='font-bold mx-3 lg:mt-3 hover:text-yellow-700'>
+            REVIEWS                    </Link>
         <Link to="/blogs" className='font-bold mx-3 lg:mt-3 hover:text-yellow-700 '>
             BLOGS
         </Link>
