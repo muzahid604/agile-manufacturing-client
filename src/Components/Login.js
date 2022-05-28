@@ -97,7 +97,7 @@ const Login = () => {
                         <input className='btn w-full mt-5 max-w-xs text-white' type="submit" value="Login" />
                         {signInError}
                     </form>
-                    <p className='text-2xl'><small><Link className='text-primary' to="/register">Create A New Account</Link></small></p>
+                    <p className='text-2xl'><small><Link className='text-red-700 hover:text-green-600 font-bold' to="/register">Create A New Account</Link></small></p>
                     <div className="divider">OR</div>
                     <button
                         onClick={() => signInWithGoogle()}

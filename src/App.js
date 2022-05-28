@@ -19,6 +19,7 @@ import ThanksPay from './Components/ThanksPay';
 import Reviews from './Components/Reviews';
 import Contact from './Components/Contact';
 import About from './Components/About';
+import Blogs from './Components/Blogs';
 
 
 function App() {
@@ -55,6 +56,7 @@ function App() {
 
       <Route path='/login' element={<Login />}></Route>
       <Route path='/reviews' element={<Reviews />}></Route>
+      <Route path='/blogs' element={<Blogs />}></Route>
       <Route path='/contact' element={<Contact />}></Route>
       <Route path='/about' element={<About />}></Route>
       <Route path='/register' element={<Register />}></Route>

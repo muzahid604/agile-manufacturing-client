@@ -10,7 +10,7 @@ const MyOrder = () => {
     const navigate = useNavigate();
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/order?customer=${user.email}`, {
+            fetch(`https://floating-springs-32258.herokuapp.com/order?customer=${user.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -38,7 +38,7 @@ const MyOrder = () => {
     const handleDelete = id => {
         const confirm = window.confirm('Are you sure?');
         if (confirm) {
-            const url = `http://localhost:5000/order?customer=${user.email}`
+            const url = `https://floating-springs-32258.herokuapp.com/order?customer=${user.email}`
             fetch(url, {
                 method: 'DELETE'
             })

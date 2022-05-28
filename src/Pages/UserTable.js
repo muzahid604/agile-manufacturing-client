@@ -3,7 +3,7 @@ import React from 'react';
 const UserTable = ({ u }) => {
     const { email, role } = u;
     const makeAdmin = () => {
-        const url = `http://localhost:5000/users/admin/${email}`
+        const url = `https://floating-springs-32258.herokuapp.com/users/admin/${email}`
         fetch(url, {
             method: 'PUT',
             headers: {

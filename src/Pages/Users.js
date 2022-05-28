@@ -4,7 +4,7 @@ import UserTable from './UserTable';
 const Users = () => {
     const [user, setUser] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/users', {
+        fetch('https://floating-springs-32258.herokuapp.com/users', {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -23,9 +23,9 @@ const Users = () => {
                 <table class="table w-full">
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Job</th>
-                            <th>Favorite Color</th>
+                            <th>Email</th>
+                            <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
