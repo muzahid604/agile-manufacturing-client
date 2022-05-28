@@ -17,6 +17,7 @@ import Users from './Pages/Users';
 import Payment from './Components/Payment';
 import ThanksPay from './Components/ThanksPay';
 import Reviews from './Components/Reviews';
+import Contact from './Components/Contact';
 
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
 
       <Route path='/login' element={<Login />}></Route>
       <Route path='/reviews' element={<Reviews />}></Route>
+      <Route path='/contact' element={<Contact />}></Route>
       <Route path='/register' element={<Register />}></Route>
       <Route path='/thanks' element={<ThanksPay />}></Route>
       <Route path='*' element={<NotFound />}></Route>
