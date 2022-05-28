@@ -18,7 +18,7 @@ const Contact = () => {
                     <p className='my-2 w-full'>Terms: For the purpose of providing services to our customers, and assess statistical information for the implementation of personalized website features, emails of notifications, we may use your personal information. On some occasions we may share your information with Dartekr authorized sales channel and business contractors.
                         By clicking submit you are agreeing to Dartek's site terms & conditions and privacy policy.</p>
                     <small className=' my-3'>For general inquiries please email us at <span className='text-red-500'>niki@alige.com</span></small>
-                    <button className='btn btn-xs my-10'>Click to Submit</button>
+                    <input className='btn btn-xs my-10' type='submit' value='Click to Submit' />
                 </div>
             </div>
 
