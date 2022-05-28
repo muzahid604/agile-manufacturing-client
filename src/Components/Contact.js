@@ -12,8 +12,8 @@ const Contact = () => {
                 </div>
                 <div className='flex flex-col mx-auto w-96 card shadow-lg px-10'>
                     <form className=''>
-                        <input type="text" placeholder="Your Name" class="my-3 input input-bordered input-accent w-full max-w-xs" />
-                        <textarea class="my-3 w-full max-w-xs textarea textarea-accent " placeholder="Please enter your inquiry here"></textarea>
+                        <input type="text" placeholder="Your Name" className="my-3 input input-bordered input-accent w-full max-w-xs" />
+                        <textarea className="my-3 w-full max-w-xs textarea textarea-accent " placeholder="Please enter your inquiry here"></textarea>
                     </form>
                     <p className='my-2 w-full'>Terms: For the purpose of providing services to our customers, and assess statistical information for the implementation of personalized website features, emails of notifications, we may use your personal information. On some occasions we may share your information with Dartekr authorized sales channel and business contractors.
                         By clicking submit you are agreeing to Dartek's site terms & conditions and privacy policy.</p>

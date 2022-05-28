@@ -51,9 +51,9 @@ const Payment = () => {
                     <form className='flex flex-col items-center justify-center' onSubmit={handleSubmit(onSubmit)}>
                         <input className='mb-2 input input-bordered w-full max-w-xs' value={user.displayName} placeholder='user' {...register("displayName", { required: true })} />
                         <input className='mb-2 input input-bordered w-full max-w-xs' value={user.email} placeholder='user email' {...register("customer", { required: true })} />
-                        <div class="form-control">
-                            <div class="input-group">
-                                <select class="select select-bordered">
+                        <div className="form-control">
+                            <div className="input-group">
+                                <select className="select select-bordered">
                                     <option disabled>Pay with</option>
                                     <option>VISA</option>
                                     <option>MASTER CARD</option>
