@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import auth from '../firebase.init';
 
 
@@ -90,9 +90,9 @@ const Purchase = () => {
                         <input className='mb-2 input input-bordered w-full max-w-xs' placeholder='Enter Phone number' {...register("phone")} />
                         <input className='mb-2 input input-bordered w-full max-w-xs' placeholder='Enter your address' {...register("address")} />
                         <input className='btn btn-xs' type="submit" value="Add For Me" />
+                        <Link className='btn btn-outline font-bold mt-5' to='/tools'>Buy More</Link>
                     </form>
                 </div>
-
             </div>
         </div>
     );
