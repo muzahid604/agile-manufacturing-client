@@ -11,22 +11,22 @@ const Navbar = () => {
         localStorage.removeItem('accessToken')
     };
     const menubar = <>
-        <Link to="/" className=' mx-3 hover:text-yellow-700 lg:mt-3 font-bold'>HOME</Link>
-        <Link to="/about" className=' mx-3 lg:mt-3 hover:text-yellow-700 font-bold'>ABOUT</Link>
+        <Link to="/" className=' mx-3 hover:text-stone-100 lg:mt-3 font-bold'>HOME</Link>
+        <Link to="/about" className=' mx-3 lg:mt-3 hover:text-stone-100 font-bold'>ABOUT</Link>
 
-        {user ? <Link to="/tools" className=' mx-3 lg:mt-3 hover:text-yellow-700 font-bold'>
+        {user ? <Link to="/tools" className=' mx-3 lg:mt-3 hover:text-stone-100 font-bold'>
             TOOLS
         </Link> : <p></p>}
-        {user ? <Link to="/dashboard" className=' mx-3 lg:mt-3 hover:text-yellow-700 font-bold'>
+        {user ? <Link to="/dashboard" className=' mx-3 lg:mt-3 hover:text-stone-100 font-bold'>
             DASHBOARD
         </Link> : <p></p>}
 
-        <Link to="/reviews" className='font-bold mx-3 lg:mt-3 hover:text-yellow-700'>
+        <Link to="/reviews" className='font-bold mx-3 lg:mt-3 hover:text-stone-100'>
             REVIEWS                    </Link>
-        <Link to="/blogs" className='font-bold mx-3 lg:mt-3 hover:text-yellow-700 '>
+        <Link to="/blogs" className='font-bold mx-3 lg:mt-3 hover:text-stone-100 '>
             BLOGS
         </Link>
-        <Link to="/contact" className=' font-bold mx-3 lg:mt-3  hover:text-yellow-700 '>
+        <Link to="/contact" className=' font-bold mx-3 lg:mt-3  hover:text-stone-100 '>
             CONTACT
         </Link>
         <div className='sm:mt-5 lg:mt-0'>

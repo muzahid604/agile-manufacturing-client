@@ -10,7 +10,7 @@ const Payment = () => {
     const navigate = useNavigate();
     useEffect(() => {
         if (user) {
-            fetch(`https://floating-springs-32258.herokuapp.com/order?customer=${user.email}`, {
+            fetch(`https://agile-manufacturing.herokuapp.com/order?customer=${user.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`

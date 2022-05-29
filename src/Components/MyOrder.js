@@ -10,7 +10,7 @@ const MyOrder = () => {
     const navigate = useNavigate();
     useEffect(() => {
         if (user) {
-            fetch(`https://floating-springs-32258.herokuapp.com/order?customer=${user.email}`, {
+            fetch(`https://agile-manufacturing.herokuapp.com/order?customer=${user.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -35,16 +35,18 @@ const MyOrder = () => {
 
         }
     }, [user])
+
+
     const handleDelete = id => {
         const confirm = window.confirm('Are you sure?');
         if (confirm) {
-            const url = `https://floating-springs-32258.herokuapp.com/order?customer=${user.email}`
+            const url = `https://agile-manufacturing.herokuapp.com/orders/${id}`
             fetch(url, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
                 .then(data => {
-                    const remaining = order.filter(order => order._id !== id);
+                    const remaining = order.filter(o => o._id !== id);
                     setOrder(remaining);
                 })
         }
@@ -69,7 +71,7 @@ const MyOrder = () => {
                         {
                             order?.map((o, index) =>
 
-                                <tr>
+                                <tr key={o?._id}>
                                     <th>{index + 1}</th>
                                     <td>{o?.displayName}</td>
                                     <td>{o?.productName?.slice(0, 30)}</td>

@@ -9,7 +9,7 @@ const Purchase = () => {
     const { toolId } = useParams()
     const [tool, setTool] = useState({});
     useEffect(() => {
-        const url = `https://floating-springs-32258.herokuapp.com/products/${toolId}`
+        const url = `https://agile-manufacturing.herokuapp.com/products/${toolId}`
         fetch(url)
             .then(res => res.json())
             .then(data => setTool(data))
@@ -32,7 +32,7 @@ const Purchase = () => {
         console.log(Quantity)
         let updateTool = { Quantity };
         // send data to the server
-        const urli = `https://floating-springs-32258.herokuapp.com/products/${toolId}`;
+        const urli = `https://agile-manufacturing.herokuapp.com/products/${toolId}`;
         console.log(urli)
         fetch(urli, {
             method: 'PUT',
@@ -47,7 +47,7 @@ const Purchase = () => {
                 setTool(data)
                 reset()
             })
-        const url = `https://floating-springs-32258.herokuapp.com/orders`;
+        const url = `https://agile-manufacturing.herokuapp.com/orders`;
         fetch(url, {
             method: 'POST',
             headers: {
